@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Spider</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>SearchInfoMoGu</servlet-name>
+    <servlet-class>com.spider.controller.SearchInfoMoGu</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchInfoMoGu</servlet-name>
+    <url-pattern>/SearchInfoMoGu</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SearchInfoDangDang</servlet-name>
+    <servlet-class>com.spider.controller.SearchInfoDangDang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchInfoDangDang</servlet-name>
+    <url-pattern>/SearchInfoDangDang</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>moguoperations</servlet-name>
+    <servlet-class>com.spider.sql.moguoperations</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>moguoperations</servlet-name>
+    <url-pattern>/moguoperations</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>dangdangoperations</servlet-name>
+    <servlet-class>com.spider.sql.dangdangoperations</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dangdangoperations</servlet-name>
+    <url-pattern>/dangdangoperations</url-pattern>
+  </servlet-mapping>
+</web-app>
