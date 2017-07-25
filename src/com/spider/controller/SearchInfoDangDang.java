@@ -48,7 +48,7 @@ public class SearchInfoDangDang extends HttpServlet {
 	    Rule rule1 = new Rule(url,  
 	                new String[] {"key"}, new String[] {name},  
 	                "paging", Rule.CLASS, Rule.GET);
-	    Elements results1 = ExtractServiceDangDang.extract(rule1, r);
+	    Elements results1 = ExtractServiceDangDang.extract(rule1, r);//-->网页源代码
 //	    System.out.println("----------------------" + results1);
 	    List<LinkTypeData> datas = ExtractServiceDangDang.searchHref(results1);
 //	    System.out.println("datas:----------------" + datas);
@@ -60,7 +60,7 @@ public class SearchInfoDangDang extends HttpServlet {
 //			System.out.println("urls:-----" + urls[i]);
 		}
 	    
-	    for(int i = 0; i < urls.length; i++)
+	    for(int i = 0; i < urls.length; i++)//对不同图书列表页面进行抓取
 		{
 			/* 当当网商品爬取 */
 			Rule rule = new Rule(urls[i], new String[]
@@ -82,9 +82,9 @@ public class SearchInfoDangDang extends HttpServlet {
 
 		}
         
-		//request生命周期较短，将数据返回到显示页面
-		request.setAttribute("bl", booklist);
-		
+		//将数据返回到显示页面
+		request.setAttribute("booklist", booklist);
+		//内部跳转到showDangDang.jsp
 		request.getRequestDispatcher("showDangDang.jsp").forward(request, response);
 	}
 

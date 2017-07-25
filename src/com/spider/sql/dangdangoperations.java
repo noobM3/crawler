@@ -41,14 +41,14 @@ public class dangdangoperations extends HttpServlet{
         doGet(request, response);
     }
 	
-	private static Connection getConn() {			//���и���
+	private static Connection getConn() {			
 	    String driver = "com.mysql.jdbc.Driver";
-	    String url = "jdbc:mysql://localhost:3306/spider";
+	    String url = "jdbc:mysql://localhost:3306/spider?useSSL=false";
 	    String username = "root";
 	    String password = "Zhuhang@1234";
 	    Connection conn = null;
 	    try {
-	        Class.forName(driver); //classLoader,���ض�Ӧ����
+	        Class.forName(driver); 
 	        conn = (Connection) DriverManager.getConnection(url, username, password);
 	    } catch (ClassNotFoundException e) {
 	        e.printStackTrace();

@@ -7,19 +7,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
 	<title>首页</title>
 </head>
-<body>
-    <div>
+<body background="background.gif">
+    <div style="width:100px;height=200px;margin:200px auto;border:1px;">
         <form name="upload" action="SearchInfoDangDang" method="post">
             <font>当当网图书搜索：</font>
             <input name="name" type="text"/><br>
             <input type="submit" value="提交">
-        	<input type="reset" value="重置" style=" position: relative ; left:20px;">
         </form>
         <br>
-        <input name="name" type="button" value="查看收藏" onclick="window.location='collection.jsp'"/>
-        <div>
-        
-        </div>
     </div>
     
 </body>

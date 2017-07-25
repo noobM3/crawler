@@ -125,7 +125,7 @@ public class ExtractServiceDangDang
 				//必要的筛选
 				String linkHref = link.attr("href"); //获取商品链接
 //				String linkHref = "";
-				String linkText = link.text();//TODO 为空？？？
+				String linkText = link.text();
 				
 				LinkTypeData data = new LinkTypeData();
 				data.setLinkHref(linkHref);
@@ -170,7 +170,7 @@ public class ExtractServiceDangDang
 		List<Book> booklist = new ArrayList<Book>();
 		int num = 0;  //展示图书数
 		System.out.println("size:" + datas.size());
-		for (int i = 0; i < datas.size() && num < 60; i++) //展示用，所以限制小一点
+		for (int i = 0; i < datas.size() && num < 4; i++) //展示用，所以限制小一点
 		{
 			String url = datas.get(i).getLinkHref();  //获取超链接
 			System.out.println(i);
@@ -186,11 +186,9 @@ public class ExtractServiceDangDang
 	        Book b = ExtractServiceDangDang.searchInfo(e);
 	        if(b != null)
 	        {
+	        	//将信息录入数据库 TODO
 	        	dangdangoperations.insert(new DangDang(b.getName(), b.getPrice(), b.getAuthor(),
 	        			b.getPublisher(), b.getTime(), b.getISBN(), url, b.getImage()));
-	        }
-	        if(b != null)
-	        {
 	        	num++;
 	        	b.setUrl(url);
 	        	booklist.add(b);
@@ -250,22 +248,37 @@ public class ExtractServiceDangDang
 			ISBN = dElements.select("li").get(9).text();
 //			System.out.println("ISBN:" + ISBN);
 			
-			//TODO 图书简介
-//			Elements descrips = result.select("[class=descrip]");
+//			//TODO 图书简介
+//			Elements detailElements = results.select("span[id=content-all]");
+//			if (detailElements == null)
+//			{
+//				detailElements = results.select("span[id=content-show]");
+//			}
+//			for (Element element : detailElements)
+//			{
+//				System.out.println("-----------------" + element);
+//			}
+//			for (Element element : deElements)
+//			{
+//				System.out.println("descrips=====" + element);
+//				
+//			}
 //			for (Element element : descrips)
 //			{
-//				System.out.println("--------" + element);
+//				System.out.println("element----" + element.text());
 //			}
+//			System.out.println("descrips-------" + descrips.text());
 //			descrip = result.getElementsByClass("descrip").text().toString();
 //			System.out.println("descrip:" + descrip);
 			
-			/*对获取后的数据进行处理,使格式统一*/
+			/*对获取后的数据头部进行处理*/
 			price = price.replaceFirst("\\?", "");
 			author = author.replaceFirst("作者:", "");
 			publisher = publisher.replaceFirst("出版社:", "");
 			time = time.replaceFirst("出版时间:", "");
 			ISBN = ISBN.replaceFirst("国际标准书号ISBN：", "");
-			/*将数据封装在模型中*/
+			
+			/*将数据封装在一个对象中*/
 			Book book = new Book();
 			book.setName(name);
 			book.setPrice(price);
@@ -277,35 +290,7 @@ public class ExtractServiceDangDang
 			return book;
 		}
 		return null;
-//		}else if(result.getElementById("price_sale") != null){  //当当自营
-//			name = result.getElementsByClass("name_info").text().toString();
-//			price = result.getElementById("price_sale").text().toString();
-//			
-//			Elements info = result.getElementsByClass("t1");
-//			author = info.get(0).text().toString();
-//			publisher = info.get(1).text().toString();
-//			time = info.get(2).text().toString();
-//			image = result.getElementById("largePic").attr("src");
-//		}else{
-//			return null;
-//		}
-		
-/*		对获取后的数据进行处理,使格式统一
-		price = price.replaceFirst("\\?", "");
-		author = author.replaceFirst("作者:", "");
-		publisher = publisher.replaceFirst("出版社:", "");
-		time = time.replaceFirst("出版时间:", "");
-		ISBN = ISBN.replaceFirst("国际标准书号ISBN：", "");
-		将数据封装在模型中
-		Book book = new Book();
-		book.setName(name);
-		book.setPrice(price);
-		book.setAuthor(author);
-		book.setPublisher(publisher);
-		book.setTime(time);
-		book.setImage(image);
-		book.setISBN(ISBN);
-		return book;*/
+
 	}
 	
 	

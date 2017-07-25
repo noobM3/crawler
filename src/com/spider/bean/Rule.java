@@ -2,7 +2,7 @@ package com.spider.bean;
 
 /**
  * 规则类
- * 
+ * 用于指定查询 url,method,params 等
  */
 public class Rule
 {

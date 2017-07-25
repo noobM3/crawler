@@ -1,5 +1,12 @@
 package com.spider.bean;
 
+
+/**
+ * 
+* @author hangzhu
+* @version Jul 1, 2017 11:24:25 PM 
+* @description:需要的数据对象
+ */
 public class LinkTypeData
 {
 	private int id;     

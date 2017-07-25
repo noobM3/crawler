@@ -11,8 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="css/show.css"/>
 	
 </head>
-<body>
-<% ArrayList<Book> booklist = (ArrayList<Book>)request.getAttribute("bl");%>
+<body background="background.gif">
+<% ArrayList<Book> booklist = (ArrayList<Book>)request.getAttribute("booklist");%>
             <%
                 for(Book book:booklist){
             %>
@@ -25,20 +25,9 @@
 	                	<span>出版社：<%=book.getPublisher() %></span><br />
 	                	<span>ISBN：<%=book.getISBN()%></span><br />
 	                	<span>出版时间：<%=book.getTime() %></span><br />
-	                	<span>购买链接：<%=book.getUrl() %></span>
+	                	<span>购买链接：<a href="<%=book.getUrl() %>"><%=book.getUrl() %></a></span>
 
 	                </p>
-	                <form action="./dangdangoperations" method="post">
-                		<input type="hidden" name="name" value="<%=book.getName() %>"/>
-                		<input type="hidden" name="price" value="<%=book.getPrice() %>"/>
-                		<input type="hidden" name="author" value="<%=book.getAuthor() %>"/>
-                		<input type="hidden" name="publishor" value="<%=book.getPublisher() %>"/>
-                		<input type="hidden" name="time" value="<%=book.getTime() %>"/>
-                		<input type="hidden" name="isbn" value="<%=book.getISBN() %>"/>
-                		<input type="hidden" name="url" value="<%=book.getUrl() %>"/>
-                		<input type="hidden" name="image" value="<%=book.getImage() %>"/>
-                	   	<input type="submit" value="收藏" />
-                	</form>
                 </div>
             <%
                 }
