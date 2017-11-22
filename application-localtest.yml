@@ -1,0 +1,27 @@
+----
+ -spring:
+ -  profiles: localtest
+ -
+ -
+ -global:
+ -  env:
+ -    label: localtest
+ -  domain:
+ -    gov: ${local_domain_user:http://127.0.0.1:8005}
+ -    internet: ${local_domain_user:http://127.0.0.1:8015}
+ -    legal: ${local_domain_user:http://127.0.0.1:8025}
+ -    personal: ${local_domain_user:http://127.0.0.1:8035}
+ -    legalUaa: ${local_domain_uaa:http://127.0.0.1:8025}
+ -    legalUaaPrivate: ${local_domain_uaa_private:http://127.0.0.1:8025}
+ -    personalUaa: ${local_domain_uaa:http://127.0.0.1:8035}
+ -    personalUaaPrivate: ${local_domain_uaa_private:http://127.0.0.1:8035}
+ -    personalDefaultPage: ${local_domain_default_login_path:http://127.0.0.1:8035}   
+  -    adminUaa: ${local_domain_uaa:http://127.0.0.1:8015}
+ -    adminUaaPrivate: ${local_domain_uaa_private:http://127.0.0.1:8015}
+ -    legalUser: ${local_domain_user:http://127.0.0.1:8025}
+ -    legalUserPrivate: ${local_domain_user_private:http://127.0.0.1:8025}
+ -    legalDefaultPage: ${local_domain_default_login_path:http://127.0.0.1:8025}  
+  -    personalUser: ${local_domain_user:http://127.0.0.1:8035}
+ -    personalUserPrivate: ${local_domain_user_private:http://127.0.0.1:8035}
+ -    adminUser: ${local_domain_user:http://127.0.0.1:8015}
+ -    adminUserPrivate: ${local_domain_user_private:http://127.0.0.1:8015}
